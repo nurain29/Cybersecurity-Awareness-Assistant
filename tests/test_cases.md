@@ -1,4 +1,4 @@
-# Dayana's Cybersecurity Chatbot Test Cases
+# Cybersecurity Chatbot Test Cases
 
 **Project:** Cybersecurity Awareness Assistant\
 **Role:** Domain Specialist -- Dayana\
