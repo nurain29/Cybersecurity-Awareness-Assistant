@@ -1,5 +1,9 @@
 .env
 __pycache__/
 *.pyc
+.streamlit/
 venv/
-.venv/
+env/
+*.pkl
+*.h5
+*.pt
