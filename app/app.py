@@ -138,6 +138,3 @@ with st.chat_message("assistant"):
     with st.spinner("Thinking..."):
         response = get_chatbot_response(user_input)
     st.markdown(response)
-
-        # 3. Add assistant response to history
-        st.session_state.messages.append({"role": "assistant", "content": response})
