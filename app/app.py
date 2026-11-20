@@ -1,4 +1,5 @@
 import streamlit as st
+from src.chatbot import get_chatbot_response
 
 # Page configuration
 st.set_page_config(
@@ -83,12 +84,15 @@ col1, col2 = st.columns(2)
 # Function to handle suggested question clicks
 def handle_suggested_question(question):
     st.session_state.messages.append({"role": "user", "content": question})
+
     with st.chat_message("user"):
         st.markdown(question)
-    
-    # Placeholder response (will be replaced by backend later)
-    response = "🤖 Backend connection is not ready yet. This is a placeholder response."
+
+    # Get response from backend
+    response = get_chatbot_response(question)
+
     st.session_state.messages.append({"role": "assistant", "content": response})
+
     with st.chat_message("assistant"):
         st.markdown(response)
 
@@ -128,13 +132,12 @@ with st.form("chat_form", clear_on_submit=True):
             st.session_state.messages.append({"role": "user", "content": user_input})
             with st.chat_message("user"):
                 st.markdown(user_input)
-            
-            # 2. Get response (placeholder for now)
-            with st.chat_message("assistant"):
-                with st.spinner("Thinking..."):
-                    # This is where Syahirah's backend will go later
-                    response = "🤖 Backend connection is not ready yet. This is a placeholder response."
-                st.markdown(response)
-            
-            # 3. Add assistant response to history
-            st.session_state.messages.append({"role": "assistant", "content": response})
+
+            # 2. Get response from backend
+with st.chat_message("assistant"):
+    with st.spinner("Thinking..."):
+        response = get_chatbot_response(user_input)
+    st.markdown(response)
+         
+        # 3. Add assistant response to history
+        st.session_state.messages.append({"role": "assistant", "content": response})
