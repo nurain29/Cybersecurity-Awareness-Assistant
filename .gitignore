@@ -7,3 +7,4 @@ env/
 *.pkl
 *.h5
 *.pt
+.venv/
