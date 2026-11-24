@@ -14,7 +14,7 @@ client = genai.Client(api_key=GEMINI_API_KEY)
 
 # Create chatbot
 chat = client.chats.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.5-flash-lite",
     config=types.GenerateContentConfig(
         system_instruction="""
         You are a Cybersecurity Awareness Assistant.
