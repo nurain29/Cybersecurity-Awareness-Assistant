@@ -37,21 +37,28 @@ chat = client.chats.create(
 
 def get_chatbot_response(user_question):
 
-    # Retrieve relevant information
-    context = retrieve_context(user_question)
+    try:
+        # Retrieve relevant information
+        context = retrieve_context(user_question)
 
-    # Prepare prompt
-    prompt = f"""
-    Retrieved Context:
-    {context}
+        # Prepare prompt
+        prompt = f"""
+        Retrieved Context:
+        {context}
 
-    User Question:
-    {user_question}
+        User Question:
+        {user_question}
 
-    Answer based on the retrieved context only.
-    """
+        Answer based on the retrieved context only.
+        """
 
-    # Generate response
-    response = chat.send_message(prompt)
+        # Generate response
+        response = chat.send_message(prompt)
 
-    return response.text
+        return response.text
+
+    except genai.errors.APIError:
+        return "Sorry, the chatbot service is temporarily unavailable. Please try again later."
+
+    except Exception:
+        return "Sorry, something went wrong while processing your question. Please try again."
