@@ -30,11 +30,13 @@ st.set_page_config(
 def load_backend():
     try:
         from src.chatbot import get_chatbot_response
-        return get_chatbot_response, None
+        import src.chatbot as chatbot_module
+        reset_fn = getattr(chatbot_module, "reset_chat", None)
+        return get_chatbot_response, reset_fn, None
     except Exception as e:                      # e.g. ValueError: key missing
-        return None, str(e)
+        return None, None, str(e)
 
-BACKEND_FN, BACKEND_ERR = load_backend()
+BACKEND_FN, RESET_FN, BACKEND_ERR = load_backend()
 
 # ------------------------------------------------------------
 # Error intelligence — turn raw API JSON into human messages
@@ -468,8 +470,14 @@ with s1:
     st.markdown('<div class="sec">💬 Conversation · Perbualan</div>', unsafe_allow_html=True)
 with s2:
     if st.button("🗑️ Clear", key="clear_chat", use_container_width=True,
-                 help="Reset the conversation / Kosongkan perbualan"):
+                 help="Reset the conversation · Kosongkan perbualan"):
         st.session_state.messages = []
+        st.session_state["cooldown_until"] = 0   # harmless if your edition has no cooldown
+        if RESET_FN is not None:
+            try:
+                RESET_FN()                       # ← Syasya's backend memory reset
+            except Exception:
+                pass
         if hasattr(st, "toast"):
             st.toast("Chat cleared · Sembang dikosongkan", icon="🗑️")
         st.rerun()
