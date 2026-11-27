@@ -29,7 +29,7 @@ st.set_page_config(
 @st.cache_resource(show_spinner=False)
 def load_backend():
     try:
-        from src.chatbot import get_chatbot_response
+        from src.chatbot import get_chatbot_response, reset_chat
         return get_chatbot_response, None
     except Exception as e:                      # e.g. ValueError: key missing
         return None, str(e)
