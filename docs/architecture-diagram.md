@@ -15,7 +15,7 @@ flowchart TD
     G --> H[Retrieved Context]
     H --> C
 
-    C --> I[Google Gemini API]
+    C --> I[Google Gemini API - Gemini 3.5 Flash Lite]
     I --> J[Generated Response]
     J --> B
     B --> K[Response Displayed to User]
