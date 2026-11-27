@@ -25,13 +25,11 @@ st.set_page_config(
 def load_backend():
     try:
         from src.chatbot import get_chatbot_response
-        import src.chatbot as chatbot_module
-        reset_fn = getattr(chatbot_module, "reset_chat", None)
-        return get_chatbot_response, reset_fn, None
+        return get_chatbot_response, None
     except Exception as e:                      # e.g. ValueError: key missing
-        return None, None, str(e)
+        return None, str(e)
 
-BACKEND_FN, RESET_FN, BACKEND_ERR = load_backend()
+BACKEND_FN, BACKEND_ERR = load_backend()
 
 # ------------------------------------------------------------
 # Timestamp helpers — weekday + date + time (WhatsApp style)
@@ -451,7 +449,7 @@ with s1:
     st.markdown('<div class="sec">💬 Conversation · Perbualan</div>', unsafe_allow_html=True)
 with s2:
     if st.button("🗑️ Clear", key="clear_chat", use_container_width=True,
-                 help="Reset the conversation · Kosongkan perbualan"):
+                 help="Reset the conversation / Kosongkan perbualan"):
         st.session_state.messages = []
         if RESET_FN is not None:
             try:
