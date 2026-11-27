@@ -207,7 +207,6 @@ chat = _create_chat()
 def reset_chat():
     """
     Reset the Gemini conversation and start a fresh chat.
-    This function can be connected to the Streamlit Clear button.
     """
     global chat
     chat = _create_chat()
@@ -243,6 +242,7 @@ Match the user's language and style:
 
 Keep the answer clear, concise, empathetic when needed, and practical."""
 
+    # Generate response
     try:
         response = chat.send_message(prompt)
         return response.text
