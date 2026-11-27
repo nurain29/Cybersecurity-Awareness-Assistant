@@ -103,13 +103,20 @@ The retrieved FAQ context is provided to the Gemini model as part of the prompt.
 ### Demo Video
 [Watch the Cybersecurity Awareness Assistant Demo](PASTE_DEMO_VIDEO_LINK_HERE)
 
-### Application Screenshots
 
-#### Chatbot Interface
-![Cybersecurity Awareness Assistant chatbot interface](docs/screenshots/chatbot-interface.png)
+## Interface Screenshots
 
-#### Chatbot Response
-![Example cybersecurity awareness response](docs/screenshots/chatbot-response.png)
+### 1. Welcome Screen
+![Welcome Screen](docs/screenshots/01_welcome_screen.png)
+
+### 2. English RAG Answer
+![English RAG Answer](docs/screenshots/02_english_rag_answer.png)
+
+### 3. BM & Manglish Answer
+![BM & Manglish Answer](docs/screenshots/03_bm_manglish_answer.png)
+
+### 4. Out-of-Domain Guardrail
+![Out-of-Domain Guardrail](docs/screenshots/04_out_of_domain_guardrail.png)
 
 
 ## Limitations
