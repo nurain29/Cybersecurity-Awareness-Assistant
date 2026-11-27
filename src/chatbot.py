@@ -75,7 +75,6 @@ chat = _create_chat()
 def reset_chat():
     """
     Reset the Gemini conversation and start a fresh chat.
-    This function can be connected to the Streamlit Clear button.
     """
     global chat
     chat = _create_chat()
@@ -89,19 +88,28 @@ def get_chatbot_response(user_question):
     if not user_question or not user_question.strip():
         return "Please enter a cybersecurity question."
 
+    # Retrieve relevant information
     context = retrieve_context(user_question, top_k=3)
 
+    # Prepare prompt
     prompt = f"""
-Retrieved Context:
-{context}
+    Retrieved FAQ Context:
+    {context}
 
-User Question:
-{user_question}
+    User Question:
+    {user_question}
 
-Answer the user's question using the retrieved cybersecurity context.
-Keep the answer clear, concise and practical.
-"""
+    Instructions:
+    1. Check whether the retrieved FAQ context is relevant.
+    2. If relevant, use the FAQ information as the primary source.
+    3. If the FAQ context is insufficient or irrelevant,
+       use your general cybersecurity knowledge.
+    4. If the question is unrelated to cybersecurity,
+       politely reject it.
+    5. Answer in the same language used by the user.
+    """
 
+    # Generate response
     try:
         response = chat.send_message(prompt)
         return response.text
