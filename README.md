@@ -52,12 +52,12 @@ The dataset sources and references are documented in:
 
 ## Team Members
 
-| No. |              Name            | Student ID |        Role        |
-|-----|------------------------------|------------|--------------------|
-|  1  | Nurain Batrisyia binti Azman | 2024642036 |   Project Leader   |
-|  2  |       Syarifah Syahirah      | 2024224602 | Backend Developer  |
-|  3  | 'Aina Qistina binti Asqolani | 2024208608 | Frontend Developer |
-|  4  | Nurul Dayana binti Marzuki   | 2024426964 | Domain Specialist  |
+| No. |              Name            | Student ID |        Role        |   Username   |
+|-----|------------------------------|------------|--------------------|--------------|
+|  1  | Nurain Batrisyia binti Azman | 2024642036 |   Project Leader   |   nurain29   |
+|  2  |       Syarifah Syahirah      | 2024224602 | Backend Developer  |  syasya-xd   |
+|  3  | 'Aina Qistina binti Asqolani | 2024208608 | Frontend Developer |  ainaqiss13  | 
+|  4  | Nurul Dayana binti Marzuki   | 2024426964 | Domain Specialist  |   dyanaazu   |
 
 
 ## System Architecture
