@@ -230,3 +230,48 @@ Complete this table only after testing the chatbot.
     service providers for account-specific action.
 -   If a question is outside the chatbot's scope or available knowledge,
     it should say so rather than invent an answer.
+
+## Automated RAG Check Results
+
+**Test script:** `tests/check_sample_questions.py`  
+**Test mode:** Offline RAG Check  
+**Date:** 27 November 2026
+
+| Sample Question | Result |
+|---|---|
+| Phishing (EN) | PASS |
+| Weak Password (BM/Manglish) | PASS |
+| MFA / OTP (EN) | PASS |
+| Malware (BM) | PASS |
+| Public Wi-Fi (EN) | PASS |
+| Privacy / IC (EN) | PASS |
+| Software Updates (EN) | PASS |
+| Social Engineering (EN) | PASS |
+
+**Overall Result:** 8/8 checks passed (100%).
+
+**Observation:** All eight sample questions successfully retrieved the top three relevant FAQ results. At least one expected keyword was found in each retrieved context.
+
+**Limitation:** This offline test checks FAQ retrieval only. It does not evaluate the accuracy or quality of Gemini-generated answers.
+
+### Live RAG Check Results
+
+**Test mode:** Live RAG Check (Gemini API)  
+**Date:** 27 November 2026
+
+| Sample Question | Result |
+|---|---|
+| Phishing (EN) | PASS |
+| Weak Password (BM/Manglish) | PASS |
+| MFA / OTP (EN) | PASS |
+| Malware (BM) | PASS |
+| Public Wi-Fi (EN) | PASS |
+| Privacy / IC (EN) | PASS |
+| Software Updates (EN) | PASS |
+| Social Engineering (EN) | PASS |
+
+**Overall Result:** 8/8 checks passed (100%).
+
+**Observation:** All eight questions successfully retrieved FAQ context and received generated responses from Gemini. All responses contained more than 20 characters.
+
+**Limitation:** This automated check validates retrieval and response generation, not the factual accuracy or completeness of each answer.
