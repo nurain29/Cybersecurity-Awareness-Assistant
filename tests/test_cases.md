@@ -202,23 +202,23 @@ and practical cybersecurity guidance.
 
 Complete this table only after testing the chatbot.
 
-  Test ID   Result (PASS/FAIL)   Actual response / issue observed
-  --------- -------------------- ----------------------------------
-  TC01      PASS           
-  TC02      PASS           
-  TC03      PASS          
-  TC04      Not tested           
-  TC05      Not tested           
-  TC06      Not tested           
-  TC07      Not tested           
-  TC08      Not tested           
-  TC09      Not tested           
-  TC10      Not tested           
-  TC11      Not tested           
-  TC12      Not tested           
-  TC13      Not tested           
-  TC14      Not tested           
-  TC15      Not tested           
+| Test ID | Result (PASS/FAIL) | Actual response / issue observed |
+|---------|--------------------|----------------------------------|
+| TC01 | PASS | It is not safe. This sounds like a phishing attempt. Banks typically do not ask you to verify your account by clicking a link in an email. Here is what you should do: -Do not click the link or download anything. -Do not enter any information or provide your password. -Check the sender through a separate trusted channel (like calling your bank using the official number on the back of your card. -Visit your bank's official website by typing the address yourself. -Report and delete the suspicious message. |
+| TC02 | PASS | Here is what you do right now: 1.Close the page immediately and do not enter any information or download files. 2.If you enter a password, change it immediately from the official website and enable multi-factor authentication. 3.If you download a file, run a security scan and seek trusted technical help if needed. |
+| TC03 | PASS | No, 12345678 is not strong enough. A strong password should be long, unique to one account, and difficult to guess. Instead of simple sequences, try using a long passphrase made from unrelated words, which can be easier to remember. You can also use a password manager to generate and store strong password securely. |
+| TC04 | PASS | No, you should not use the same password for different accounts. Use a different password for every account. If one service is breached, attackers may try the exposed password on your other accounts, putting both your Instagram and Gmail at risk. |
+| TC05 | PASS | An OTP is part of Multi-Factor Authentication (MFA), which is much better than using only a password. MFA provides an additional layer of protection, meaning a stolen password alone is not enough for an attacker to access your account. You should use MFA wherever it is available, especially for your email and financial accounts. |
+| TC06 | PASS | Here is what you should do: -Use the account's official recovery process or a backup method you set up earlier, such as backup codes or another registered device. -Contact the service through its official support channel if needed. -Once you regain access, remove the lost device and register a replacement. |
+| TC07 | PASS | Yes, it could be malware. Malware is software designed to harm a device, disrupt its operation, spy on users, or access information without permission, and it can arrive through unsafe downloads. Here are the practical staps you should take: -Stop using the device for sensitive activities and disconnect it from the network if you suspect an active infection. -Run a scan using trusted, updated security software and follow its removal guidance. -Change important passwords from a different, trusted device if they may have been exposed. -Seek professional help if the problem continues. |
+| TC08 | PASS | No, antivirus software cannot guarantee complete protection from every cyberattack. While it can detect and block many known threats, you should also take these practical steps: -Keep your software updated. -Use strong, unique password and Multi-Factor Authentication (MFA). -Back up your important files regularly. -Always be careful with links, attachments, and downloads. |
+| TC09 | PASS | No, you should not follow their instructions. This sounds like a fake technical support scam, where someone pretends to be a tech support worker and claims your device has a problem to pressure you into installing remote-access software, revealing passwords, or paying money. Here is what you should do: -End the contact immediately. -Do not install remote-access software or share any passwords. -Reach out to the company only using its official website or phone number if you believe there is a genuine issue. |
+| TC10 | PASS | This sounds like a suspicious request. Please follow these practical steps: -Do not make any money transfer. -Check the sender through a separate, trusted channel (such as calling your manager directly on their phone number or talking to them in person) to verify if the request is real. -Report or delete the suspicious message. If you have already shared any sensitive financial information or transferred money, act quickly and contact your bank through its official channel immediately. |
+| TC11 | PASS | No, you should avoid accessing highly sensitive accounts or making financial transactions on public Wi-Fi if you cannot verify the network;s security. Public Wi-Fi can be useful, but you should not assume every hotspot is trustworthy. It is much safer to use your mobile data for important transactions when possible. |
+| TC12 | PASS | No, a padlock symbol does not mean the website is completely safe. A padlock symbol and HTTPS show that the connection is encrypted, but they do not prove that the website itself is honest. You should still check that the web address is correct and remain cautious of misspelled or unfamiliar domain names. |
+| TC13 | PASS | No, you should not send a picture of your identity card. Personal information like your ID can be misused for identity theft, scams, account takeover, unwanted tracking, or impersonation. You should always share only what is necessary and check who is asking for it and why. |
+| TC14 | PASS | Act quickly! Here are the practical steps you should take: 1.Change your password immediately: Go directly to the official website or app, change your password, and sign out of other sessions if the option is available.2.Enable multi-factor (MFA) to add an extra layer of security. 3.Check your accounts: Review your recovery details and recent account activity. 4.Update reused passwords: If you used that same password for any other accounts, change them immediately as well. |
+| TC15 | PASS | No, you should not ignore the updates. Software updates often fix security weakness and vulnerabilities that attackers could exploit. Keeping your operating system, browser apps, and security software updated helps protect your device against know and newly discovered threats. Whenever practical, you should install updates from the device provider and enable automatic updates.|
 
 ## Notes and limitations
 
@@ -230,7 +230,6 @@ Complete this table only after testing the chatbot.
     service providers for account-specific action.
 -   If a question is outside the chatbot's scope or available knowledge,
     it should say so rather than invent an answer.
-
 
 ## Automated RAG Check Results
 
@@ -255,7 +254,6 @@ Complete this table only after testing the chatbot.
 
 **Limitation:** This offline test checks FAQ retrieval only. It does not evaluate the accuracy or quality of Gemini-generated answers.
 
-
 ### Live RAG Check Results
 
 **Test mode:** Live RAG Check (Gemini API)  
@@ -277,5 +275,3 @@ Complete this table only after testing the chatbot.
 **Observation:** All eight questions successfully retrieved FAQ context and received generated responses from Gemini. All responses contained more than 20 characters.
 
 **Limitation:** This automated check validates retrieval and response generation, not the factual accuracy or completeness of each answer.
-
-
