@@ -25,11 +25,11 @@ st.set_page_config(
 def load_backend():
     try:
         from src.chatbot import get_chatbot_response, reset_chat
-        return get_chatbot_response, None
+        return get_chatbot_response, reset_chat, None
     except Exception as e:                      # e.g. ValueError: key missing
-        return None, str(e)
+        return None, None, str(e)
 
-BACKEND_FN, BACKEND_ERR = load_backend()
+BACKEND_FN, RESET_FN, BACKEND_ERR = load_backend()
 
 # ------------------------------------------------------------
 # Timestamp helpers — weekday + date + time (WhatsApp style)
